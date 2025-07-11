@@ -1,18 +1,21 @@
 from aiogram import F, Router
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart, Command
+from aiogram.fsm.context import FSMContext
 
 import app.keyboard as kb
+import app.states as sts
 
 router = Router()
 
 @router.message(CommandStart())                                     # Ловимо /start
 async def cmd_start(message: Message):
-    await message.answer('Для роботи з ботом вам потрібно зареєструватись', reply_markup=kb.main)
+    await message.answer('Для роботи з ботом вам потрібно зареєструватись.\n'
+                         'Для реэстраціі натисніть або напишіть команду /register')
 
 @router.message(Command('help'))                                    # Ловимо /help
 async def cmd_help(message: Message):
-    await message.answer('Ви обрали меню допомоги. Щоб повернутись у головне меню натисніть /home')
+    await message.answer('Ви обрали меню допомоги.')
 
 @router.callback_query(F.data == 'day_start_end')                   # Ловимо дату колбеків
 async def daystartend(callback: CallbackQuery):
@@ -63,19 +66,30 @@ async def painting(callback: CallbackQuery):
 
 
 
+@router.message(Command('register'))                                # реєстрація
+async def register(message: Message, state: FSMContext):
+    await state.set_state(sts.Register.firstName)
+    await message.answer("Напишіть будьласка ваше ім'я")
+
+@router.message(sts.Register.firstName)
+async def register_firstName(message: Message, state: FSMContext):
+    await state.update_data(firstName=message.text)
+    await state.set_state(sts.Register.lastName)
+    await message.answer("Напишіть будьласка ваше прізвище")
+
+@router.message(sts.Register.lastName)
+async def register_lastName(message: Message, state: FSMContext):
+    await state.update_data(lastName=message.text)
+    await state.set_state(sts.Register.surname)
+    await message.answer("Напишіть будьласка ваше по батькові")
+
+@router.message(sts.Register.surname)
+async def register_surname(message: Message, state: FSMContext):
+    await state.update_data(surname=message.text)
+    data = await state.get_data()
+    await message.answer(f'Вітаю вас, {data["firstName"]}. Приємного дня.', reply_markup=kb.main)
 
 
 
 
 
-#@router.message(F.text == 'Початок роботи')
-#async def report(message: Message):
-#    await message.answer('Оберіть будьласка місце роботи:', reply_markup=kb.workshops)
-
-#@router.message(F.text == 'Завершення роботи')
-#async def report(message: Message):
-#    await message.answer('Оберіть будьласка місце роботи:', reply_markup=kb.workshops)
-
-#@router.message(F.text == 'Особистий кабінет')
-#async def report(message: Message):
-#    await message.answer('В розробці')
