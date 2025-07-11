@@ -53,7 +53,7 @@ bunHandling = InlineKeyboardMarkup(inline_keyboard=[                            
     [InlineKeyboardButton(text='Зачистка отворів', callback_data='cleaning_holes'),
      InlineKeyboardButton(text='Заклепування плюшок', callback_data='riveting buns')],
     [InlineKeyboardButton(text='Герметиз. ложемента', callback_data='cradle_sealing'),
-     InlineKeyboardButton(text='Встановлення пушки', callback_data='gun_installation')],
+     InlineKeyboardButton(text='Встановлення пушечки', callback_data='gun_installation')],
     [InlineKeyboardButton(text='Установка стопорних\n кілець на пушки', callback_data='installation_retaining_rings'),
      InlineKeyboardButton(text='Вирівнювання заклепки\n проточування різьб', callback_data='rivet_alignment')],
     [InlineKeyboardButton(text='Установка канальної\n трубки', callback_data='channel_tube_install'),
@@ -87,7 +87,7 @@ stamping = InlineKeyboardMarkup(inline_keyboard=[                               
      InlineKeyboardButton(text='Рубка отворів\n у плюшці', callback_data='cutting_holes_bun')],
     [InlineKeyboardButton(text='Рубка отворів\n у кришці', callback_data='cutting_holes_cap'),
      InlineKeyboardButton(text='Шліфовка болгаркою', callback_data='grinding_cap')],
-    [InlineKeyboardButton(text='Заміна матриці', callback_data='sealant_application')]
+    [InlineKeyboardButton(text='Заміна матриці', callback_data='matrix_replacement')]
 ])
 
 painting = InlineKeyboardMarkup(inline_keyboard=[                              # вибір робіт

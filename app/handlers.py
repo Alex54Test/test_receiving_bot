@@ -88,7 +88,9 @@ async def register_lastName(message: Message, state: FSMContext):
 async def register_surname(message: Message, state: FSMContext):
     await state.update_data(surname=message.text)
     data = await state.get_data()
-    await message.answer(f'Вітаю вас, {data["firstName"]}.\nВаш ID: {data["tgID"]} \nПриємного дня.', reply_markup=kb.main)
+    await message.answer(f'Вітаю вас, {data["firstName"]}.\nВаш ID: {data["tgID"]} \nПриємного дня.',
+                         reply_markup=kb.main)
+    await state.clear()
 
 
 
