@@ -24,42 +24,42 @@ async def daystartend(callback: CallbackQuery):
                                   ' Мається на увазі місце де ви зараз будете працювати (працювали)',
                                   reply_markup=kb.workshops)
 
-@router.callback_query(F.data == 'my_acc')
+@router.callback_query(F.data == 'my_acc')                      #Планується лінк на особистий кабінет
 async def myaccount(callback: CallbackQuery):
     await callback.answer('В розробці')
     await callback.message.answer('В розробці')
 
-@router.callback_query(F.data == 'main_WS')
+@router.callback_query(F.data == 'main_WS')                     # Ловимо напрямки, за якими працює людина
 async def mainWS(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка напрямок')
     await callback.message.answer('Оберіть будьласка напрямок:', reply_markup=kb.mainWS)
 
-@router.callback_query(F.data == 'auxiliary_WS')
+@router.callback_query(F.data == 'auxiliary_WS')                # Ловимо напрямки, за якими працює людина
 async def auxiliaryWS(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка напрямок')
     await callback.message.answer('Оберіть будьласка напрямок:', reply_markup=kb.auxiliaryWS)
 
-@router.callback_query(F.data == 'departments')
+@router.callback_query(F.data == 'departments')                 # Ловимо напрямки, за якими працює людина
 async def departments(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка напрямок')
     await callback.message.answer('Оберіть будьласка напрямок:', reply_markup=kb.departments)
 
-@router.callback_query(F.data == 'bun_handling')
+@router.callback_query(F.data == 'bun_handling')                # Ловимо види робіт
 async def bunHandling(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:', reply_markup=kb.bunHandling)
 
-@router.callback_query(F.data == 'making_bagels')
+@router.callback_query(F.data == 'making_bagels')               # Ловимо види робіт
 async def makingBagels(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:', reply_markup=kb.makingBagels)
 
-@router.callback_query(F.data == 'stamping')
+@router.callback_query(F.data == 'stamping')                    # Ловимо види робіт
 async def stamping(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:', reply_markup=kb.stamping)
 
-@router.callback_query(F.data == 'painting')
+@router.callback_query(F.data == 'painting')                    # Ловимо види робіт
 async def painting(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:', reply_markup=kb.painting)
@@ -68,6 +68,7 @@ async def painting(callback: CallbackQuery):
 
 @router.message(Command('register'))                                # реєстрація
 async def register(message: Message, state: FSMContext):
+    await state.update_data(tgID=message.from_user.id)
     await state.set_state(sts.Register.firstName)
     await message.answer("Напишіть будьласка ваше ім'я")
 
@@ -87,7 +88,7 @@ async def register_lastName(message: Message, state: FSMContext):
 async def register_surname(message: Message, state: FSMContext):
     await state.update_data(surname=message.text)
     data = await state.get_data()
-    await message.answer(f'Вітаю вас, {data["firstName"]}. Приємного дня.', reply_markup=kb.main)
+    await message.answer(f'Вітаю вас, {data["firstName"]}.\nВаш ID: {data["tgID"]} \nПриємного дня.', reply_markup=kb.main)
 
 
 

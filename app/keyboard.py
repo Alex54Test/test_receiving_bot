@@ -1,9 +1,10 @@
+from aiogram import types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 main = InlineKeyboardMarkup(inline_keyboard=[                                  # стартова меню
-    [InlineKeyboardButton(text='Початок/завершення роботи', callback_data='day_start_end')],
-    [InlineKeyboardButton(text='Особистий кабінет', callback_data='my_acc')]
+    [InlineKeyboardButton(text='Початок/завершення\n роботи', callback_data='day_start_end'),
+    InlineKeyboardButton(text='Особистий кабінет', callback_data='my_acc')]
 ])
 
 workshops = InlineKeyboardMarkup(inline_keyboard=[                              # вибір по цехах
@@ -53,10 +54,10 @@ bunHandling = InlineKeyboardMarkup(inline_keyboard=[                            
      InlineKeyboardButton(text='Заклепування плюшок', callback_data='riveting buns')],
     [InlineKeyboardButton(text='Герметиз. ложемента', callback_data='cradle_sealing'),
      InlineKeyboardButton(text='Встановлення пушки', callback_data='gun_installation')],
-    [InlineKeyboardButton(text='Установка стопорних кілець на пушки', callback_data='installation_retaining_rings'),
-     InlineKeyboardButton(text='Вирівнювання заклепки, проточування різьб', callback_data='rivet_alignment')],
-    [InlineKeyboardButton(text='Установка канальної трубки', callback_data='channel_tube_install'),
-     InlineKeyboardButton(text='Термоусадження канальної трубки(фен)', callback_data='heat_shrinking')],
+    [InlineKeyboardButton(text='Установка стопорних\n кілець на пушки', callback_data='installation_retaining_rings'),
+     InlineKeyboardButton(text='Вирівнювання заклепки\n проточування різьб', callback_data='rivet_alignment')],
+    [InlineKeyboardButton(text='Установка канальної\n трубки', callback_data='channel_tube_install'),
+     InlineKeyboardButton(text='Термоусадження канальної\n трубки (фен)', callback_data='heat_shrinking')],
     [InlineKeyboardButton(text='Нанесення герметика', callback_data='sealant_application'),
      InlineKeyboardButton(text='Розподілення герметика', callback_data='distribution_sealant')],
     [InlineKeyboardButton(text='ВТК', callback_data='technical_control_dep'),
@@ -68,11 +69,11 @@ makingBagels = InlineKeyboardMarkup(inline_keyboard=[                           
     [InlineKeyboardButton(text='Нарізка гуми', callback_data='cutting_rubber'),
      InlineKeyboardButton(text='Проклеювання бублика', callback_data='gluing_bagel')],
     [InlineKeyboardButton(text='Свердлівка бублика', callback_data='Bagel drill'),
-     InlineKeyboardButton(text='Встановлення каналів та штирів', callback_data='channels&pins')],
+     InlineKeyboardButton(text='Встановлення каналів\n та штирів', callback_data='channels&pins')],
     [InlineKeyboardButton(text='Проклеювання каналів', callback_data='gluing_channels'),
      InlineKeyboardButton(text='Герметизація каналів', callback_data='sealing_channels')],
     [InlineKeyboardButton(text='Зачистка бублика', callback_data='cleaning_bagel'),
-     InlineKeyboardButton(text='Вибірковий тех. контроль бублика', callback_data='selective_control')]
+     InlineKeyboardButton(text='Вибірковий тех.\n контроль бублика', callback_data='selective_control')]
 ])
 
 stamping = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт
@@ -80,11 +81,11 @@ stamping = InlineKeyboardMarkup(inline_keyboard=[                               
      InlineKeyboardButton(text='Штампування кришки', callback_data='cap stamping')],
     [InlineKeyboardButton(text='Штампування дна', callback_data='bottom_stamping'),
      InlineKeyboardButton(text='Загибання дна', callback_data='bending_of_bottom')],
-    [InlineKeyboardButton(text='Калібровка після штамповки плюшки', callback_data='calibration_bun'),
-     InlineKeyboardButton(text='Калібровка після рубки кришки', callback_data='calibration_cap')],
+    [InlineKeyboardButton(text='Калібровка після\n штамповки плюшки', callback_data='calibration_bun'),
+     InlineKeyboardButton(text='Калібровка після\n рубки кришки', callback_data='calibration_cap')],
     [InlineKeyboardButton(text='Зинковка кришки', callback_data='drilling_cap'),
-     InlineKeyboardButton(text='Рубка отворів у плюшці', callback_data='cutting_holes_bun')],
-    [InlineKeyboardButton(text='Рубка отворів у кришці', callback_data='cutting_holes_cap'),
+     InlineKeyboardButton(text='Рубка отворів\n у плюшці', callback_data='cutting_holes_bun')],
+    [InlineKeyboardButton(text='Рубка отворів\n у кришці', callback_data='cutting_holes_cap'),
      InlineKeyboardButton(text='Шліфовка болгаркою', callback_data='grinding_cap')],
     [InlineKeyboardButton(text='Заміна матриці', callback_data='sealant_application')]
 ])
