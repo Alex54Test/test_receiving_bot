@@ -1,51 +1,4 @@
-from aiogram import types
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
-
-
-main = InlineKeyboardMarkup(inline_keyboard=[                                  # стартова меню
-    [InlineKeyboardButton(text='Початок/завершення\n роботи', callback_data='day_start_end'),
-    InlineKeyboardButton(text='Особистий кабінет', callback_data='my_acc')]
-])
-
-workshops = InlineKeyboardMarkup(inline_keyboard=[                              # вибір по цехах
-    [InlineKeyboardButton(text='Основний цех', callback_data='main_WS'),
-     InlineKeyboardButton(text='Допоміжні цеха', callback_data='auxiliary_WS')],
-    [InlineKeyboardButton(text='Відділи', callback_data='departments')]
-])
-
-mainWS = InlineKeyboardMarkup(inline_keyboard=[                                 # вибір напрямків
-    [InlineKeyboardButton(text='Зборка плюшки', callback_data='bun_handling'),
-     InlineKeyboardButton(text='Виготовлення бубликів', callback_data='making_bagels')],
-    [InlineKeyboardButton(text='Штамповка', callback_data='stamping'),
-     InlineKeyboardButton(text='Покраска', callback_data='painting')],
-    [InlineKeyboardButton(text='Зборка ананасів', callback_data='pineapple'),
-     InlineKeyboardButton(text='Зборка кукурудзи', callback_data='corn')],
-    [InlineKeyboardButton(text='Трубочки', callback_data='straws'),
-     InlineKeyboardButton(text='Термос', callback_data='thermos')]
-])
-
-auxiliaryWS = InlineKeyboardMarkup(inline_keyboard=[                              # вибір напрямків
-    [InlineKeyboardButton(text='Майстерня', callback_data='repair_shop'),
-     InlineKeyboardButton(text='Принтерна', callback_data='printers')],
-    [InlineKeyboardButton(text='Фреза', callback_data='Milling_cutter'),
-     InlineKeyboardButton(text='Зварювання', callback_data='welding')],
-    [InlineKeyboardButton(text='Гільотина', callback_data='guillotine'),
-     InlineKeyboardButton(text='Погрузка', callback_data='loading')]
-])
-
-departments = InlineKeyboardMarkup(inline_keyboard=[                              # вибір напрямків
-    [InlineKeyboardButton(text='Офіс', callback_data='office'),
-     InlineKeyboardButton(text='Склад', callback_data='warehouse')],
-    [InlineKeyboardButton(text='Франція', callback_data='France'),
-     InlineKeyboardButton(text='Тести', callback_data='tests')],
-    [InlineKeyboardButton(text='Електронщики', callback_data='electronics')]
-])
-
-#supervisor = InlineKeyboardMarkup(inline_keyboard=[                              # вибір керівника
-#    [InlineKeyboardButton(text='Артем', callback_data='_artem'),
-#     InlineKeyboardButton(text='Олександр', callback_data='_olexandr')],
-#    [InlineKeyboardButton(text='Ігор', callback_data='_ihor')
-#])
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 bunHandling = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт
     [InlineKeyboardButton(text='Видавлювання плюшки', callback_data='extrusion_holes'),
@@ -64,7 +17,6 @@ bunHandling = InlineKeyboardMarkup(inline_keyboard=[                            
      InlineKeyboardButton(text='Розкладання плюшек', callback_data='transfer_buns')],
     [InlineKeyboardButton(text='Пакування плюшек', callback_data='packaging_buns')],
 ])
-
 makingBagels = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт
     [InlineKeyboardButton(text='Нарізка гуми', callback_data='cutting_rubber'),
      InlineKeyboardButton(text='Проклеювання бублика', callback_data='gluing_bagel')],
@@ -75,7 +27,6 @@ makingBagels = InlineKeyboardMarkup(inline_keyboard=[                           
     [InlineKeyboardButton(text='Зачистка бублика', callback_data='cleaning_bagel'),
      InlineKeyboardButton(text='Вибірковий тех.\n контроль бублика', callback_data='selective_control')]
 ])
-
 stamping = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт
     [InlineKeyboardButton(text='Штампування плюшки', callback_data='bun_stamping'),
      InlineKeyboardButton(text='Штампування кришки', callback_data='cap stamping')],
@@ -89,24 +40,7 @@ stamping = InlineKeyboardMarkup(inline_keyboard=[                               
      InlineKeyboardButton(text='Шліфовка болгаркою', callback_data='grinding_cap')],
     [InlineKeyboardButton(text='Заміна матриці', callback_data='matrix_replacement')]
 ])
-
 painting = InlineKeyboardMarkup(inline_keyboard=[                              # вибір робіт
     [InlineKeyboardButton(text='Маляр', callback_data='painter'),
      InlineKeyboardButton(text='Підмайстер', callback_data='journeyman_paint')],
 ])
-
-
-
-
-#main = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Початок роботи')],
-#                                     [KeyboardButton(text='Завершення роботи')],
-#                                     [KeyboardButton(text='Особистий кабінет')]],
-#                           resize_keyboard=True,
-#                           input_field_placeholder='Оберіть пункт меню...')
-
-
-
-## catalog = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Кукурудза', callback_data='corn')],
-##                                                [InlineKeyboardButton(text='Ананас', callback_data='pineapple')],
-##                                                [InlineKeyboardButton(text='Плюшка', callback_data='bun')],
-##                                               [InlineKeyboardButton(text='Термос', callback_data='thermos')]])
