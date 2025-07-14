@@ -12,7 +12,7 @@ mainWS = InlineKeyboardMarkup(inline_keyboard=[                                 
      InlineKeyboardButton(text='Покраска', callback_data='painting')],
     [InlineKeyboardButton(text='Зборка ананасів', callback_data='pineapple'),
      InlineKeyboardButton(text='Зборка кукурудзи', callback_data='corn')],
-    [InlineKeyboardButton(text='Трубочки', callback_data='straws'),
+    [InlineKeyboardButton(text='Трубочки', callback_data='tubes'),
      InlineKeyboardButton(text='Підготовчі роботи', callback_data='preparatory_work')]
 #     InlineKeyboardButton(text='Термос', callback_data='thermos')]
 ])

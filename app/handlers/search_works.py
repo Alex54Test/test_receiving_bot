@@ -25,7 +25,7 @@ async def mainWS(callback: CallbackQuery):
 
 
 @router_sw.callback_query(F.data == 'auxiliary_WS')                # Ловимо напрямки, за якими працює людина
-async def auxiliaryWS(callback: CallbackQuery):
+async def auxiliary_ws(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка напрямок')
     await callback.message.answer('Оберіть будьласка напрямок:',
                                   reply_markup=wakb.auxiliaryWS)
@@ -39,14 +39,14 @@ async def departments(callback: CallbackQuery):
 
 
 @router_sw.callback_query(F.data == 'bun_handling')                # Ловимо види робіт
-async def bunHandling(callback: CallbackQuery):
+async def bun_handling(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:',
                                   reply_markup=mainwskb.bunHandling)
 
 
 @router_sw.callback_query(F.data == 'making_bagels')               # Ловимо види робіт
-async def makingBagels(callback: CallbackQuery):
+async def making_bagels(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:',
                                   reply_markup=mainwskb.makingBagels)
@@ -64,3 +64,37 @@ async def painting(callback: CallbackQuery):
     await callback.answer('Оберіть будьласка вид роботи')
     await callback.message.answer('Оберіть будьласка вид роботи:',
                                   reply_markup=mainwskb.painting)
+
+@router_sw.callback_query(F.data == 'preparatory_work')                    # Ловимо види робіт
+async def preparatory_work(callback: CallbackQuery):
+    await callback.answer('Оберіть будьласка вид роботи')
+    await callback.message.answer('Оберіть будьласка вид роботи:',
+                                  reply_markup=mainwskb.preparatory_work)
+
+@router_sw.callback_query(F.data == 'pineapple')                    # Ловимо види робіт
+async def pineapple(callback: CallbackQuery):
+    await callback.answer('Оберіть будьласка вид роботи')
+    await callback.message.answer('Оберіть будьласка вид роботи:',
+                                  reply_markup=mainwskb.pineapple)
+
+@router_sw.callback_query(F.data == 'corn')                    # Ловимо види робіт
+async def corn(callback: CallbackQuery):
+    await callback.answer('Оберіть будьласка вид роботи')
+    await callback.message.answer('Оберіть будьласка вид роботи:',
+                                  reply_markup=mainwskb.corn)
+
+@router_sw.callback_query(F.data == 'tubes')                    # Ловимо види робіт
+async def tubes(callback: CallbackQuery):
+    await callback.answer('Оберіть будьласка вид роботи')
+    await callback.message.answer('Оберіть будьласка вид роботи:',
+                                  reply_markup=mainwskb.tubes)
+
+
+
+
+
+
+
+
+
+
