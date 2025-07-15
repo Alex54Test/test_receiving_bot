@@ -20,9 +20,8 @@ auxiliaryWS = InlineKeyboardMarkup(inline_keyboard=[                            
     [InlineKeyboardButton(text='Майстерня', callback_data='repair_shop'),
      InlineKeyboardButton(text='Принтерна', callback_data='printers')],
     [InlineKeyboardButton(text='Фреза', callback_data='milling_cutter'),
-     InlineKeyboardButton(text='Зварювання', callback_data='welding')],
-    [InlineKeyboardButton(text='Гільотина', callback_data='guillotine'),
-     InlineKeyboardButton(text='Погрузка', callback_data='loading')]
+     InlineKeyboardButton(text='Гільотина', callback_data='guillotine')],
+    [InlineKeyboardButton(text='Погрузка', callback_data='loading')]
 ])
 departments = InlineKeyboardMarkup(inline_keyboard=[                              # вибір напрямків
     [InlineKeyboardButton(text='Офіс', callback_data='office'),
