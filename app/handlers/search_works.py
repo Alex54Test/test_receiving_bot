@@ -1,7 +1,8 @@
 from aiogram import F, Router
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 
 
+from app.api.Api import Api
 import app.keyboards.workshops_areas_kbs as wakb
 import app.keyboards.works_selesct_main_WS_kbs as mainwskb
 import app.keyboards.works_select_auxiliary_WS_kbs as auxwskb
@@ -34,9 +35,27 @@ async def auxiliary_ws(callback: CallbackQuery):
 
 @router_sw.callback_query(F.data == 'departments')                 # Ловимо напрямки, за якими працює людина
 async def departments(callback: CallbackQuery):
+    api = Api(api_url="http://localhost:2712/", token="your_token_here") # Example API initialization, rework it in production
+    departments = api.get_all_departments() # Fetch all departments from the API
+    if not departments:
+        await callback.answer("No departments found.")
+        return
+    
+#     departments = InlineKeyboardMarkup(inline_keyboard=[                              # вибір напрямків
+#     [InlineKeyboardButton(text='Офіс', callback_data='office'),
+#      InlineKeyboardButton(text='Склад', callback_data='warehouse')],
+#     [InlineKeyboardButton(text='Франція', callback_data='france'),
+#      InlineKeyboardButton(text='Тести', callback_data='tests')],
+#     [InlineKeyboardButton(text='Електронщики', callback_data='electronics')]
+# ])
+    
+    department_buttons = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text=dept.name, callback_data=dept.entity_id) for dept in departments]
+    ])
+    
     await callback.answer('Оберіть будьласка напрямок')
     await callback.message.answer('Оберіть будьласка напрямок:',
-                                  reply_markup=wakb.departments)
+                                  reply_markup=department_buttons)
 
 
 @router_sw.callback_query(F.data == 'bun_handling')                # Ловимо види робіт, плюшки
