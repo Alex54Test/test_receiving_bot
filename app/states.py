@@ -7,3 +7,4 @@ class Register(StatesGroup):
     firstName = State()
     lastName = State()
     surname = State()
+

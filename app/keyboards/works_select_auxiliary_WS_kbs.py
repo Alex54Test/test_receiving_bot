@@ -38,14 +38,14 @@ gunAssembly = InlineKeyboardMarkup(inline_keyboard=[                            
      InlineKeyboardButton(text='Порізка паралону для пушечок', callback_data='cutting_paralon_guns')]
 ])
 #
-milling_cutter = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт, фреза
+millingCutter = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт, фреза
     [InlineKeyboardButton(text='Виготовлення штампів', callback_data='stamps_production'),
      InlineKeyboardButton(text='Виготовлення плат', callback_data='boards_production')],
     [InlineKeyboardButton(text='Виготовлення одиночних деталей', callback_data='single_parts_production')],
     [InlineKeyboardButton(text='Ремонтні роботи', callback_data='repair_works_f')]
 ])
 
-guillotine = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт, фреза
+guillotine = InlineKeyboardMarkup(inline_keyboard=[                                # вибір робіт, гільотина
     [InlineKeyboardButton(text='Порізка металлу 30*30', callback_data='metal_cut_30'),
      InlineKeyboardButton(text='Порізка металлу 40*40', callback_data='metal_cut_40')],
     [InlineKeyboardButton(text='Порізка металлу 56*56', callback_data='metal_cut_56'),

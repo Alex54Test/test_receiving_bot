@@ -48,7 +48,7 @@ painting = InlineKeyboardMarkup(inline_keyboard=[                              #
      InlineKeyboardButton(text='Підмайстер', callback_data='journeyman_paint')],
 ])
 
-preparatory_work = InlineKeyboardMarkup(inline_keyboard=[                      # вибір робіт, Підготовчі роботи
+preparatoryWork = InlineKeyboardMarkup(inline_keyboard=[                      # вибір робіт, Підготовчі роботи
     [InlineKeyboardButton(text='Нарізка штиря', callback_data='pin_cutting'),
      InlineKeyboardButton(text='Шліфування фаски штиря', callback_data='pin_chamfer_grinding')],
     [InlineKeyboardButton(text='Миття штирів', callback_data='pin_washing'),
